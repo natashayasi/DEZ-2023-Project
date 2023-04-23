@@ -1,0 +1,22 @@
+
+version: 2
+
+sources:
+  - name: staging
+    database: vast-signifier-375221
+    schema: project
+
+    tables:
+      - name: geometries
+      - name: simulations
+
+models:
+  - name: facts_dwellings
+    description: >
+      A combination of geometries and simulations to make a giant facts table. 
+    columns:
+      - name: apartment_id
+        description: primary key for the table. Should not be allowed to be null. 
+        tests:
+          - not_null:
+              severity: warn
